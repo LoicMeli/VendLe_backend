@@ -1,0 +1,73 @@
+const mongoose=require('mongoose');
+const { Schema } = mongoose;
+
+const serviceSchema = new Schema({
+	name:{
+		type:String,
+		required:true
+	},
+	description:{
+		type:String,
+		required:true
+	},
+	contact:{
+		type:Number,
+		required:true
+	},
+	photosUrls:[String],
+	category:{
+		type:String,
+		required:true
+	},
+	city:{
+		type:String
+	},
+	country:{
+		type:String
+	},
+	quarter:{
+		type:String
+	},
+    price:{
+    	type:Number
+    },
+    view:{
+    	type:Number
+    },
+    authorID:{
+    	type:String,
+    	required:true
+    },
+    dateCreated:{
+    	type:Date,
+        default:Date.now()
+    },
+    dateUpdated:{
+    	type:Date
+    },
+    evaluation:{
+   	type:Number
+    },
+    signal:{
+    	value:Boolean,
+    	reason:String
+    },
+    status:{
+        //status du service (s'il est actuel ou non)
+        type:String
+    },
+    history:[{
+        oldrecord:[String],
+        newrecord:[String],
+        Datecreated:{
+            type:Date
+        }
+    }]
+})
+
+/*recommended
+-Name
+-Description
+-Category
+-contact
+*/
